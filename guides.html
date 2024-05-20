@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Руководства</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div class="container">
+
+        <!-- Header -->
+        <header class="hero">
+            <h1>Руководства по AI</h1>
+        </header>
+
+        <!-- Контент -->
+        <div class="main-content">
+            <!-- Боковое меню -->
+            <nav class="sidebar">
+                <ul>
+                    <li><a href="#" data-section="intro">Введение</a></li>
+                    <li><a href="#" data-section="getting-started">Начало работы</a></li>
+                    <li><a href="#" data-section="advanced-topics">Продвинутые темы</a></li>
+                    <li><a href="#" data-section="faq">Часто задаваемые вопросы</a></li>
+                    <li><a href="#" data-section="midjourney-intro">Что такое Midjourney?</a></li>
+                    <li><a href="#" data-section="midjourney-how-to">Как пользоваться Midjourney?</a></li>
+                </ul>
+            </nav>
+
+            <!-- Основной контент -->
+            <div class="guides-content">
+                <section id="intro" class="content-section">
+                    <h2>Введение</h2>
+                    <p>Здесь будет введение в тему...</p>
+                </section>
+                <section id="getting-started" class="content-section" style="display: none;">
+                    <h2>Начало работы</h2>
+                    <p>Здесь будет информация о начале работы...</p>
+                </section>
+                <section id="advanced-topics" class="content-section" style="display: none;">
+                    <h2>Продвинутые темы</h2>
+                    <p>Здесь будет информация о продвинутых темах...</p>
+                </section>
+                <section id="faq" class="content-section" style="display: none;">
+                    <h2>Часто задаваемые вопросы</h2>
+                    <p>Здесь будут часто задаваемые вопросы...</p>
+                </section>
+                <section id="midjourney-intro" class="content-section" style="display: none;">
+                    <h2>Что такое Midjourney?</h2>
+                    <p>Midjourney - это инструмент для генерации изображений с помощью искусственного интеллекта...</p>
+                </section>
+                <section id="midjourney-how-to" class="content-section" style="display: none;">
+                    <h2>Как пользоваться Midjourney?</h2>
+                    <p>Для начала использования Midjourney, нужно зарегистрироваться и выполнить следующие шаги...</p>
+                </section>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <div class="footer-content">
+                <img src="logo.png" alt="Логотип" class="logo">
+                <div class="links">
+                    <a href="#">О нас</a>
+                    <a href="#">Галерея</a>
+                    <a href="#">Новости</a>
+                    <a href="#">Контакты</а>
+                </div>
+                <div class="company-info">
+                    ООО "Организация" © 2020
+                </div>
+            </div>
+        </footer>       
+
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const links = document.querySelectorAll(".sidebar a");
+            const sections = document.querySelectorAll(".content-section");
+
+            links.forEach(link => {
+                link.addEventListener("click", function(event) {
+                    event.preventDefault();
+                    const targetId = this.getAttribute("data-section");
+
+                    sections.forEach(section => {
+                        if (section.id === targetId) {
+                            section.style.display = "block";
+                        } else {
+                            section.style.display = "none";
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>

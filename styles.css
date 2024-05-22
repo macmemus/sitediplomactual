@@ -27,6 +27,17 @@ body, html {
     background-color: #141314;
     color: #e6e1e3;
     font-family: "FuturaCyrillicBook", sans-serif;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    width: calc(100% - 80px); /* Учитываем ширину меню */
+    flex: 1;
+    margin-left: 80px; /* Отступ для навигационного меню */
 }
 
 /* Стили для hero изображения */
@@ -57,12 +68,14 @@ body, html {
     width: 1760px;
     height: 550px;
     margin: 0 auto 20px;
+    display: flex;
 }
 
 .large-blocks {
     display: flex;
     gap: 20px;
     height: 100%;
+    width: 100%;
 }
 
 .custom-block {
@@ -120,6 +133,7 @@ body, html {
     justify-content: center;
     flex-direction: column;
     margin: 20px;
+    flex: 1;
 }
 
 .section-title {
@@ -165,74 +179,53 @@ body, html {
     margin-bottom: 20px;
 }
 
+/* Новый стиль для одинакового размера картинок */
 .article-image {
     width: 100%;
-    height: auto;
+    height: 250px; /* Устанавливаем фиксированную высоту */
+    object-fit: cover; /* Обеспечиваем обрезку изображения, чтобы оно соответствовало заданным размерам */
     border-radius: 20px;
     align-self: flex-end;
 }
 
-/* Стили для sidebar */
-.sidebar {
+/* Стили для drawer */
+.drawer {
+    height: 100%;
+    width: 80px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
     background-color: #1c1b1d;
-    border-radius: 20px;
-    padding: 20px;
-    max-width: 200px;
-    box-sizing: border-box;
-    margin-right: 20px;
-    height: fit-content;
-}
-
-.sidebar ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+    padding-top: 20px;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    align-items: center;
+    padding-top: 120px; /* Смещение от верха для начала после больших блоков */
 }
 
-.sidebar ul li a {
+.drawer a {
+    padding: 8px 0;
     text-decoration: none;
+    font-size: 12px;
     color: #e6e1e3;
-    font-size: 16px;
-}
-
-.guides-content {
-    flex: 1;
-    padding: 20px;
-    background-color: #1c1b1d;
-    border-radius: 20px;
-}
-
-.guides-content h2 {
-    font-size: 28px;
-    margin-bottom: 10px;
-}
-
-.guides-content p {
-    font-size: 18px;
-    margin-bottom: 20px;
-}
-
-/* Стили для pagination */
-.pagination {
     display: flex;
-    justify-content: center;
-    margin: 20px auto;
-    width: 640px;
+    flex-direction: column;
+    align-items: center;
+    transition: 0.3s;
+    text-align: center;
+    width: 80px;
+    height: 60px;
 }
 
-.pagination a {
-    color: #e6e1e3;
-    padding: 8px 14px;
-    text-decoration: none;
-    margin: 0 2px;
-    transition: background-color .3s;
+.drawer a:hover {
+    background-color: #575757;
 }
 
-.pagination a:hover {
-    background-color: #ddd;
+.drawer .icon {
+    width: 24px;
+    height: 24px;
+    margin-bottom: 5px;
 }
 
 footer {
@@ -267,14 +260,48 @@ footer {
 }
 
 /* Адаптивность */
+@media (max-width: 1200px) {
+    .large-blocks {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .custom-block, .custom-video {
+        height: 300px;
+        width: 100%;
+    }
+
+    .hero img {
+        height: 300px;
+    }
+
+    .hero-text {
+        font-size: 30px;
+    }
+}
+
 @media (max-width: 768px) {
+    .container {
+        padding-left: 0; /* Убираем отступ на малых экранах */
+        margin-left: 0;
+    }
+
+    .drawer {
+        position: relative;
+        width: 100%;
+        flex-direction: row;
+        justify-content: center;
+        padding-top: 20px;
+    }
+
+    .drawer a {
+        padding: 8px;
+        font-size: 14px;
+    }
+
     .main-content {
         flex-direction: column;
         align-items: center;
-    }
-
-    .sidebar {
-        margin-bottom: 20px;
     }
 
     .articles {
@@ -287,6 +314,43 @@ footer {
 
     .custom-video {
         height: auto;
+    }
+
+    .hero img {
+        height: 200px;
+    }
+
+    .hero-text {
+        font-size: 24px;
+    }
+
+    .large-blocks-container {
+        height: auto;
+    }
+
+    .custom-block, .custom-video {
+        height: auto;
+        width: 90%;
+    }
+
+    .section-title {
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 480px) {
+    .article {
+        width: 100%;
+    }
+
+    .pagination {
+        width: 100%;
+        flex-wrap: wrap;
+    }
+
+    .pagination a {
+        margin: 2px 0;
+        padding: 8px 10px;
     }
 }
 
@@ -322,3 +386,155 @@ footer {
 #sub-menu ul li a:hover {
     background-color: #6200ea;
 }
+
+/* Основные стили для страницы гайдов */
+.guides-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.guides-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.guides-header h1 {
+    font-size: 36px;
+    color: #e6e1e3;
+}
+
+.guides-header p {
+    font-size: 18px;
+    color: #c1bdbd;
+}
+
+.search-filters {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.search-input {
+    flex: 1;
+    padding: 10px;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+    margin-right: 10px;
+    font-size: 16px;
+}
+
+.filters select {
+    padding: 10px;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+    margin-left: 10px;
+    font-size: 16px;
+}
+
+.guides-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.guide-card {
+    background-color: #1c1b1d;
+    border-radius: 20px;
+    padding: 20px;
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+}
+
+.guide-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 20px;
+    margin-bottom: 15px;
+}
+
+.guide-content {
+    text-align: left;
+}
+
+.guide-content h2 {
+    font-size: 24px;
+    color: #e6e1e3;
+    margin-bottom: 10px;
+}
+
+.guide-content p {
+    font-size: 18px;
+    color: #e6e1e3;
+    margin-bottom: 10px;
+}
+
+.guide-date {
+    font-size: 14px;
+    color: #c1bdbd;
+    margin-bottom: 20px;
+}
+
+.guide-button {
+    display: inline-block;
+    background-color: #6200ea;
+    color: #ffffff;
+    padding: 10px 20px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-size: 16px;
+    transition: background-color .3s;
+}
+
+.guide-button:hover {
+    background-color: #3700b3;
+}
+
+.popular-guides {
+    margin-top: 40px;
+}
+
+.popular-guides h2 {
+    font-size: 28px;
+    color: #e6e1e3;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.footer {
+    background-color: #1c1b1d;
+    padding: 20px;
+    text-align: center;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    height: 100%;
+}
+
+.logo {
+    max-width: 100px;
+    margin-bottom: 10px;
+}
+
+.links a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: #e6e1e3;
+    font-size: 16px;
+}
+
+.company-info {
+    font-size: 14px;
+    color: #e6e1e3;
+}
+

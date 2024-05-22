@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Твой сайт</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
 </head>
 <body>
     <div class="container">
@@ -22,9 +22,9 @@
             <div class="large-blocks">
                 <div class="custom-block">
                     <div class="custom-block-content">
-                        <h2>Lorem Ipsum</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                        <a href="guides.html" class="custom-button">Learn More</a>
+                        <h2>AI в преподавании: Новые горизонты</h2>
+                        <p>Преподаватели могут использовать AI для управления учебным процессом, анализа успеваемости и персонализации обучения. Откройте для себя, как технологии AI помогают сделать обучение более эффективным.  </p>
+                        <a href="guides.html" class="custom-button">Узнать больше</a>
                     </div>
                 </div>
                 <div class="custom-block">
@@ -36,15 +36,17 @@
             </div>
         </div>
 
-        <div class="main-content">  
-            <!-- Добавляем мини меню слева -->
-            <div class="sidebar">
-                <ul>
-                    <li><a href="#what-is-ai">Что такое AI?</a></li>
-                    <li><a href="#how-to-use-ai">Как использовать AI?</a></li>
-                </ul>
-            </div>
+        <!-- Навигационный drawer -->
+        <div id="drawer" class="drawer">
+            <a href="#what-is-ai">
+                <img src="iconsai.png" alt="AI Icon" class="icon"><br>Что такое AI?
+            </a>
+            <a href="#how-to-use-ai">
+                <img src="icon2.png" alt="How to Use AI Icon" class="icon"><br>Как использовать AI?
+            </a>
+        </div>
 
+        <div class="main-content">  
             <!-- Раздел "Основы AI" -->
             <h2 class="section-title">Основы AI:</h2>
             <div class="articles-row">
@@ -83,7 +85,7 @@
                         <h2>Использование AI в обучении программированию</h2>
                         <p>AI может помочь студентам учиться программированию, предоставляя советы и автоматическую проверку кода.</p>
                     </div>
-                    <img src="education-ai-1.jpg" alt="Article Image" class="article-image">
+                    <img src="aiprogram.png" alt="Article Image" class="article-image">
                 </div>
                 <div class="article">
                     <div class="article-content">
@@ -91,7 +93,7 @@
                         <h2>AI в образовательных играх</h2>
                         <p>Образовательные игры с использованием AI могут адаптироваться под уровень знаний учащегося, делая обучение интересным и эффективным.</p>
                     </div>
-                    <img src="education-ai-2.jpg" alt="Article Image" class="article-image">
+                    <img src="aiprogram2.png" alt="Article Image" class="article-image">
                 </div>
                 <div class="article">
                     <div class="article-content">
@@ -99,21 +101,11 @@
                         <h2>AI в управлении учебным процессом</h2>
                         <p>AI помогает преподавателям управлять учебным процессом, анализировать успеваемость и персонализировать обучение.</p>
                     </div>
-                    <img src="education-ai-3.jpg" alt="Article Image" class="article-image">
+                    <img src="aiprogram3.png" alt="Article Image" class="article-image">
                 </div>
             </div>
         </div>
 
-        <div class="pagination">
-            <a href="#">&laquo;</a>
-            <a href="#">1</a>
-            <a href="#">2</a>
-            <a href="#">3</a>
-            <a href="#">4</a>
-            <a href="#">...</a>
-            <a href="#">10</a>
-            <a href="#">&raquo;</a>
-        </div>
 
         <footer>
             <div class="footer-content">
